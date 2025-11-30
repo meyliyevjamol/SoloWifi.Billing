@@ -2,7 +2,6 @@ using Confluent.Kafka;
 using Microsoft.EntityFrameworkCore;
 using SoloWifi.Billing.DataLayer;
 using SoloWifi.Billing.ServiceLayer;
-using SoloWifi.Billing.ServiceLayer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

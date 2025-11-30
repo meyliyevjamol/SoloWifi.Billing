@@ -26,7 +26,7 @@ public class OrdersController : ControllerBase
         {
             return BadRequest(new { error = ex.Message });
         }
-        catch (Exception ex)
+        catch 
         {
             return BadRequest(new { error = "Tizimda xatolik yuz berdi." });
         }
@@ -44,7 +44,7 @@ public class OrdersController : ControllerBase
         {
             return BadRequest(new { error = ex.Message });
         }
-        catch (Exception ex)
+        catch
         {
             return BadRequest(new { error = "Tizimda xatolik yuz berdi." });
         }
