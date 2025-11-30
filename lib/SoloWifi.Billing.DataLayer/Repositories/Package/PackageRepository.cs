@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoloWifi.Billing.DataLayer.Repositories;
+namespace SoloWifi.Billing.DataLayer;
 
 public class PackageRepository : IPackageRepository
 {

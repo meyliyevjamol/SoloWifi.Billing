@@ -1,7 +1,7 @@
 ﻿using SoloWifi.Billing.DataLayer;
 using StatusGeneric;
 
-namespace SoloWifi.Billing.ServiceLayer.Services;
+namespace SoloWifi.Billing.ServiceLayer;
 
 public interface IOrderService : IStatusGeneric
 {

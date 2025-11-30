@@ -1,4 +1,4 @@
-﻿namespace SoloWifi.Billing.ServiceLayer.Services;
+﻿namespace SoloWifi.Billing.ServiceLayer;
 
 public class OrderPaidEvent
 {

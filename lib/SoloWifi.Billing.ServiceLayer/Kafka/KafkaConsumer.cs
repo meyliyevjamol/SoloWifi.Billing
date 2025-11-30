@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SoloWifi.Billing.DataLayer;
-using SoloWifi.Billing.ServiceLayer.Services.OrderSevices;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace SoloWifi.Billing.ServiceLayer;
 

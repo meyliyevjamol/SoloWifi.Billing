@@ -1,4 +1,4 @@
-﻿namespace SoloWifi.Billing.DataLayer.Repositories;
+﻿namespace SoloWifi.Billing.DataLayer;
 
 public interface ICustomerRepository
 {

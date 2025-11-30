@@ -1,11 +1,10 @@
 ﻿using Confluent.Kafka;
 using Microsoft.EntityFrameworkCore;
 using SoloWifi.Billing.DataLayer;
-using SoloWifi.Billing.DataLayer.Repositories;
 using StatusGeneric;
 using System.Text.Json;
 
-namespace SoloWifi.Billing.ServiceLayer.Services;
+namespace SoloWifi.Billing.ServiceLayer;
 
 public class OrderService : StatusGenericHandler, IOrderService
 {

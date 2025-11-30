@@ -1,10 +1,7 @@
-using Confluent.Kafka;
 using Microsoft.AspNetCore.Mvc;
 using SoloWifi.Billing.ServiceLayer;
-using SoloWifi.Billing.ServiceLayer.Services;
-using SoloWifi.Billing.ServiceLayer.Services.OrderSevices;
 
-namespace SoloWifi.Billing.WebApi.Controllers;
+namespace SoloWifi.Billing.WebApi;
 
 [ApiController]
 [Route("orders")]

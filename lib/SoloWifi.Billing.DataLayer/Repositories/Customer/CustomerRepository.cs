@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 
-namespace SoloWifi.Billing.DataLayer.Repositories;
+namespace SoloWifi.Billing.DataLayer;
 
 public class CustomerRepository : ICustomerRepository
 {
