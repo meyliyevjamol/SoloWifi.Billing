@@ -17,7 +17,7 @@ public class KafkaConsumer : BackgroundService
         _serviceScopeFactory = serviceScopeFactory;
         _config = new ConsumerConfig
         {
-            BootstrapServers = "localhost:9092",
+            BootstrapServers = "kafka:29092",
             GroupId = "update-service",
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
