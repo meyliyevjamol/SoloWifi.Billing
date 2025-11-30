@@ -2,6 +2,7 @@ using Confluent.Kafka;
 using Microsoft.EntityFrameworkCore;
 using SoloWifi.Billing.DataLayer;
 using SoloWifi.Billing.ServiceLayer;
+using SoloWifi.Billing.ServiceLayer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services.AddDbContext<EfCoreContext>(options =>
 
 // Application Services
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IPackageService, PackageService>();
 
 //// Repositories
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();

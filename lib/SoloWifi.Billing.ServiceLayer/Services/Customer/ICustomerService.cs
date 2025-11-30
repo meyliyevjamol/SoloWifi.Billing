@@ -1,6 +1,6 @@
 ﻿using SoloWifi.Billing.DataLayer;
 
-namespace SoloWifi.Billing.ServiceLayer.Services;
+namespace SoloWifi.Billing.ServiceLayer;
 
 public interface ICustomerService
 {

@@ -5,11 +5,11 @@ namespace SoloWifi.Billing.WebApi;
 
 [ApiController]
 [Route("[controller]/[action]")]
-public class CustomerController : ControllerBase
+public class PackageController : ControllerBase
 {
-    private readonly ICustomerService _service;
+    private readonly IPackageService _service;
 
-    public CustomerController(ICustomerService service)
+    public PackageController(IPackageService service)
     {
         _service = service;
     }
@@ -20,3 +20,4 @@ public class CustomerController : ControllerBase
         return Ok(await _service.GetAllAsync());
     }
 }
+
