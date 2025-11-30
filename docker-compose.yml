@@ -19,8 +19,8 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 
       # Listenerlar
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093,PLAINTEXT_INTERNAL://0.0.0.0:29092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9093,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_INTERNAL://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
 
@@ -28,7 +28,6 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
 
     ports:
-      - "9093:9093"
       - "29092:29092"
 
   postgres:
@@ -43,6 +42,7 @@ services:
       - "5432:5432"
     volumes:
       - solowifi_pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   webapi:
     build: .
@@ -54,6 +54,9 @@ services:
       - "8080:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: "Docker"
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=solowifi_billing;Username=postgres;Password=postgres"
+      Kafka__BootstrapServers: "kafka:29092"   # Docker ichida override
+      Kafka__TopicName: "order-paid"
 
 volumes:
   solowifi_pgdata:
