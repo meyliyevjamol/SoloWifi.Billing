@@ -19,9 +19,9 @@ public class CustomerRepository : ICustomerRepository
         return customer;
     }
 
-    public Task<List<Customer>> GetAllAsync(long id)
+    public Task<List<Customer>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return _context.Customers.ToListAsync();
     }
 
     public async Task<Customer> GetByIdAsync(long id)

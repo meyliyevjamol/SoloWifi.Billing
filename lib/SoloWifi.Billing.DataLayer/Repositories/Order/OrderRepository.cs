@@ -26,6 +26,7 @@ public class OrderRepository : IOrderRepository
         return await _context.Orders
             .Include(o => o.Customer)
             .Include(o => o.Package)
+            .Include(o => o.Status)
             .FirstOrDefaultAsync(o => o.Id == id);
     }
 
@@ -39,5 +40,10 @@ public class OrderRepository : IOrderRepository
     {
         _context.Orders.Update(order);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<Order>> GetAllAsync()
+    {
+       return await _context.Orders.ToListAsync();
     }
 }

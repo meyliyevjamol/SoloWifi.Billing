@@ -4,7 +4,7 @@ using SoloWifi.Billing.ServiceLayer;
 namespace SoloWifi.Billing.WebApi;
 
 [ApiController]
-[Route("orders")]
+[Route("[controller]/[action]")]
 public class OrdersController : ControllerBase
 {
     private readonly IOrderService _orderService;
@@ -26,6 +26,10 @@ public class OrdersController : ControllerBase
         {
             return BadRequest(new { error = ex.Message });
         }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = "Tizimda xatolik yuz berdi." });
+        }
     }
 
     [HttpPost("{id}/pay")]
@@ -40,5 +44,14 @@ public class OrdersController : ControllerBase
         {
             return BadRequest(new { error = ex.Message });
         }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = "Tizimda xatolik yuz berdi." });
+        }
+    }
+    [HttpGet]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        return Ok(await _orderService.GetAllAsync());
     }
 }

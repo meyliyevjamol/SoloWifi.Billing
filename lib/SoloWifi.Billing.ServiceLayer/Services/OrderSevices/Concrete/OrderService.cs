@@ -48,6 +48,11 @@ public class OrderService : StatusGenericHandler, IOrderService
         return order;
     }
 
+    public async Task<List<Order>> GetAllAsync()
+    {
+        return await _orderRepository.GetAllAsync();
+    }
+
     public async Task<Order> PayOrderAsync(int orderId)
     {
         var order = await _context.Orders
