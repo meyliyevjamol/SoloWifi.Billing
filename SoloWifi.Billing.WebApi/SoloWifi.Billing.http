@@ -1,0 +1,10 @@
+@SoloWifi = https://localhost:7081
+
+GET {{JiraClone_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{JiraClone_HostAddress}}/task/Get/{id}
+
+###
