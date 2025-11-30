@@ -25,14 +25,11 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 //// Kafka
 
-builder.Services.AddSingleton<IProducer<Null, string>>(sp =>
+var kafkaConfig = new Confluent.Kafka.ProducerConfig
 {
-    var config = new ProducerConfig
-    {
-        BootstrapServers = "localhost:9092"
-    };
-    return new ProducerBuilder<Null, string>(config).Build();
-});
+    BootstrapServers = builder.Configuration["Kafka:BootstrapServers"]
+};
+builder.Services.AddSingleton(kafkaConfig);
 
 builder.Services.AddHostedService<KafkaConsumer>();
 
