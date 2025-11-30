@@ -38,7 +38,7 @@ public class OrderService : StatusGenericHandler, IOrderService
         {
             CustomerId = request.CustomerId,
             PackageId = request.PackageId,
-            StatusId = 1,
+            StatusId = StatusIdConst.CREATED,
             CreatedAt = DateTime.Now//yaratilgan
         };
 
@@ -58,6 +58,7 @@ public class OrderService : StatusGenericHandler, IOrderService
         var order = await _context.Orders
             .Include(o => o.Customer)
             .Include(o => o.Package)
+            .Include(o => o.Status)
             .FirstOrDefaultAsync(o => o.Id == orderId);
 
         if (order == null)
@@ -79,6 +80,7 @@ public class OrderService : StatusGenericHandler, IOrderService
 
         // To'lovni amalga oshirish - Balansdan avtomatik yechib olish
         order.Customer.Balance -= order.Package.Price;
+
         order.StatusId = StatusIdConst.PAID;
 
 

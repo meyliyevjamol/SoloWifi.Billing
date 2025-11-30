@@ -2,7 +2,7 @@
 
 namespace SoloWifi.Billing.ServiceLayer;
 
-internal class PackageService : IPackageService
+public class PackageService : IPackageService
 {
     private readonly IPackageRepository _PackageRepository;
 

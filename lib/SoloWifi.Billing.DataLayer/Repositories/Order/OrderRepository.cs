@@ -44,6 +44,8 @@ public class OrderRepository : IOrderRepository
 
     public async Task<List<Order>> GetAllAsync()
     {
-       return await _context.Orders.ToListAsync();
+       return await _context.Orders.Include(o => o.Customer)
+            .Include(o => o.Package)
+            .Include(o => o.Status).ToListAsync();
     }
 }
